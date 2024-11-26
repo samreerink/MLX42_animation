@@ -1,0 +1,4 @@
+MLX42_animation.a
+*.o
+.cache
+*.json
