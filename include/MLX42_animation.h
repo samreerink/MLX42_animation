@@ -6,7 +6,7 @@
 /*   By: sreerink <sreerink@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2024/11/19 15:25:45 by sreerink      #+#    #+#                 */
-/*   Updated: 2024/11/19 15:30:00 by sreerink      ########   odam.nl         */
+/*   Updated: 2024/11/26 16:57:25 by sreerink      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MLX42_ANIMATION_H
 
 # include "MLX42/MLX42.h"
+# include <stdlib.h>
 
 typedef struct s_sprite_sheet
 {
@@ -42,11 +43,13 @@ typedef struct s_animation
 
 // Functions
 
+void		px_to_px(mlx_image_t *d, mlx_image_t *s, uint32_t i_dst, uint32_t i_src);
+
+void		clear_image(mlx_image_t *img);
+
+void		put_img(mlx_image_t *dst, mlx_image_t *src, uint32_t y, uint32_t x);
+
 t_sprite	*load_sprite_sheet(const char *file, int h, int w, mlx_t *mlx);
-
-void		sprite_to_frame(mlx_image_t *img, t_sprite *s);
-
-bool		add_frame(t_animation *a, t_sprite *s);
 
 void		update_animation(t_animation *a, double dt);
 
